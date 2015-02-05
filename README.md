@@ -24,7 +24,7 @@ And then execute:
 
 ### 必要な環境変数
 
-```
+```ruby
 ENV['SEED_KEY'] # スプレッドシートのkey
 ENV['GOOGLE_CLIENT_ID']
 ENV["GOOGLE_CLIENT_SECRET"]
@@ -34,7 +34,7 @@ ENV['APPLICATION_VERSION'] # Google APIに送るアプリケーションのバ�
 ENV['GOOGLE_REFRESH_TOKEN'] # CreativeSurvey::Seed::GoogleSession.refresh_token を呼ぶと取得手順開始
 ```
 
-```
+```ruby
 SpreadsheetImporter::Importer.new(Entry, :title).imports
 ```
 
@@ -43,7 +43,7 @@ SpreadsheetImporter::Importer.new(Entry, :title).imports
 
 Rakeにすると以下のような感じ
 
-```
+```ruby
 namespace :seed do
   desc 'Categoryモデルのデータをスプレッドシートから取得して代入する'
   task category: :environment do
