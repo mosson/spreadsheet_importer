@@ -1,7 +1,9 @@
 # SpreadsheetImporter
 
 Google Spreadsheet上にあるデータからActiveRecordを作成するためのライブラリ
+
 運用のためのデータ（初期データや環境用データ）をGoogleSpreadsheetで管理しているとき、
+
 非エンジニアでも編集できる環境とその反映を楽にする目的
 
 ## Installation
