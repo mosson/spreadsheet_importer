@@ -39,6 +39,27 @@ SpreadsheetImporter::Importer.new(Entry, :title).imports
 第一引数にインポート対象のクラス(ワークシート名はクラス名をunderscoreしたものと一致したものを用意すること)
 第二引数はfind_or_initialize_byの対象となるユニークなキーをシンボルで渡す
 
+Rakeにすると以下のような感じ
+
+```
+namespace :seed do
+  desc 'Categoryモデルのデータをスプレッドシートから取得して代入する'
+  task category: :environment do
+    SpreadsheetImporter::Importer.new(Category, :name).imports
+  end
+
+  desc 'Entryモデルのデータをスプレッドシートから取得して代入する'
+  task entry: :environment do
+    SpreadsheetImporter::Importer.new(Entry, :permalink).imports
+  end
+
+  desc 'PublishedUrlモデルのデータをスプレッドシートから取得して代入する'
+  task published_url: :environment do
+    SpreadsheetImporter::Importer.new(PublishedUrl, :url).imports
+  end
+end
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/mosson/spreadsheet_importer/fork )
