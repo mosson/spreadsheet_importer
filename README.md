@@ -1,30 +1,47 @@
 # SpreadsheetImporter
 
-TODO: Write a gem description
+Google Spreadsheet上にあるデータからActiveRecordを作成するためのライブラリ
+運用のためのデータ（初期データや環境用データ）をGoogleSpreadsheetで管理しているとき、
+非エンジニアでも編集できる環境とその反映を楽にする目的
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'spreadsheet_importer'
+gem 'spreadsheet_importer', github: 'mosson/spreadsheet_importer'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install spreadsheet_importer
-
 ## Usage
 
-TODO: Write usage instructions here
+0. Google Console上でアクセストークンを取得して環境変数にセットすること
+
+### 必要な環境変数
+
+```
+ENV['SEED_KEY'] # スプレッドシートのkey
+ENV['GOOGLE_CLIENT_ID']
+ENV["GOOGLE_CLIENT_SECRET"]
+ENV['APPLICATION_NAME'] # Google APIに送るアプリケーション名
+ENV['APPLICATION_VERSION'] # Google APIに送るアプリケーションのバージョン
+
+ENV['GOOGLE_REFRESH_TOKEN'] # CreativeSurvey::Seed::GoogleSession.refresh_token を呼ぶと取得手順開始
+```
+
+```
+SpreadsheetImporter::Importer.new(Entry, :title).imports
+```
+
+第一引数にインポート対象のクラス(ワークシート名はクラス名をunderscoreしたものと一致したものを用意すること)
+第二引数はfind_or_initialize_byの対象となるユニークなキーをシンボルで渡す
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/spreadsheet_importer/fork )
+1. Fork it ( https://github.com/mosson/spreadsheet_importer/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
