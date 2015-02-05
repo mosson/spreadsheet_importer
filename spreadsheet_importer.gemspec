@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = SpreadsheetImporter::VERSION
   spec.authors       = ["mosson"]
   spec.email         = ["cucation@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = 'Import records from Google spreadsheet for seed.'
+  spec.description   = 'Import records from Google spreadsheet for seed.'
+  spec.homepage      = "https://github.com/mosson/spreadsheet_importer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
