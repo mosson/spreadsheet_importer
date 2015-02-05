@@ -60,6 +60,14 @@ namespace :seed do
     SpreadsheetImporter::Importer.new(PublishedUrl, :url).imports
   end
 end
+
+namespace :google do
+  desc 'スプレッドシート取得のためのGoogle OAuthのリフレッシュトークンを取得する'
+  task refresh_token: :environment do
+    CreativeSurvey::Seed::GoogleSession.refresh_token
+  end
+end
+
 ```
 
 ## Contributing
