@@ -1,0 +1,22 @@
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# メソッド名のprefixに「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+# クラスにコメントを残さない
+Documentation:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - Guardfile
+    - Gemfile
+    - spec/**/*
+    - spreadsheet_importer.gemspec
