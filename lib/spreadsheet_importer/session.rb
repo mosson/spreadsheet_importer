@@ -49,12 +49,12 @@ module SpreadsheetImporter
       end
 
       def refresh_message
-        STDOUT.puts("1. Open this page:\n#{a.authorization_uri}\n\n")
+        STDOUT.puts("1. Open this page:\n#{auth.authorization_uri}\n\n")
         STDOUT.puts('2. Enter the authorization code shown in the page: ')
       end
 
       def refreshed_message
-        STDOUT.puts "環境変数GOOGLE_REFRESH_TOKENに #{a.refresh_token} をセットしてください"
+        STDOUT.puts "環境変数GOOGLE_REFRESH_TOKENに #{auth.refresh_token} をセットしてください"
         ::Kernel.exit
       end
     end
