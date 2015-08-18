@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'google_drive'
 require 'spreadsheet_importer/version'
 require 'spreadsheet_importer/session'
