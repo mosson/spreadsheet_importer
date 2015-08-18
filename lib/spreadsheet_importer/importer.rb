@@ -31,8 +31,12 @@ module SpreadsheetImporter
     end
 
     def assign(attribute)
-      record = target_class
-               .unscoped.find_or_initialize_by(predicate!(attribute))
+      records = target_class
+               .unscoped
+              #  .find_or_initialize_by(predicate!(attribute))
+      attributes = predicate!(attribute)
+      record = records.where(attributes).first
+      record = target_class.new(attributes) unless record
       record.tap { |r| r.assign_attributes suitable(attribute) }
     end
 
