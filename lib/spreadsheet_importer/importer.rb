@@ -37,7 +37,11 @@ module SpreadsheetImporter
       attributes = predicate!(attribute)
       record = records.where(attributes).first
       record = target_class.new(attributes) unless record
-      record.tap { |r| r.assign_attributes suitable(attribute) }
+      record.tap do |r|
+        suitable(attribute).each do |key, value|
+          r.send("#{key}=", value)
+        end
+      end
     end
 
     def predicate!(attribute)
