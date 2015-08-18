@@ -1,8 +1,10 @@
+# encoding: utf-8
+
 module SpreadsheetImporter
   class Importer
     attr_accessor :target_class, :unique_key, :sheet_title
 
-    def initialize(target_class, unique_key, sheet_title)
+    def initialize(target_class, unique_key, sheet_title = nil)
       self.target_class = target_class
       self.unique_key = unique_key
       self.sheet_title = sheet_title
