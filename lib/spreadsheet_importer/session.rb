@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module SpreadsheetImporter
   module Session
     module ModuleMethods

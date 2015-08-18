@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module SpreadsheetImporter
   class Spreadsheet
     attr_accessor :key, :title
