@@ -9,13 +9,14 @@ module SpreadsheetImporter
     end
 
     def imports
-      records.each(&method(:import))
+      records.map(&method(:import))
     end
 
     def import(record)
       target = assign(attribute_for(record))
       log(target)
       target.save!
+      target
     rescue ::ActiveRecord::RecordInvalid => e
       STDOUT.puts target.errors.full_messages.join("\n")
       raise e
