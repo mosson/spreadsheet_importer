@@ -1,10 +1,11 @@
 module SpreadsheetImporter
   class Importer
-    attr_accessor :target_class, :unique_key
+    attr_accessor :target_class, :unique_key, :sheet_title
 
-    def initialize(target_class, unique_key)
+    def initialize(target_class, unique_key, sheet_title)
       self.target_class = target_class
       self.unique_key = unique_key
+      self.sheet_title = sheet_title
     end
 
     def imports
@@ -56,7 +57,7 @@ module SpreadsheetImporter
     end
 
     def title
-      target_class.name.underscore
+      sheet_title || target_class.name.underscore
     end
 
     def suitable(hash)
