@@ -36,7 +36,7 @@ module SpreadsheetImporter
       #  .find_or_initialize_by(predicate!(attribute))
       attributes = predicate!(attribute)
       record = records.where(attributes).first
-      record = target_class.new(attributes) if record.nil?
+      record = target_class.new(attributes, without_protection: true) if record.nil?
       record.tap do |r|
         suitable(attribute).each do |key, value|
           r.send("#{key}=", value)
