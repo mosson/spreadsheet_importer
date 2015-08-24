@@ -32,11 +32,11 @@ module SpreadsheetImporter
 
     def assign(attribute)
       records = target_class
-               .unscoped
-              #  .find_or_initialize_by(predicate!(attribute))
+                .unscoped
+      #  .find_or_initialize_by(predicate!(attribute))
       attributes = predicate!(attribute)
       record = records.where(attributes).first
-      record = target_class.new(attributes) unless record
+      record = target_class.new(attributes) if record.nil?
       record.tap do |r|
         suitable(attribute).each do |key, value|
           r.send("#{key}=", value)

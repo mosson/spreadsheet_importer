@@ -8,6 +8,9 @@ describe SpreadsheetImporter::Importer do
   describe 'シード' do
     it 'クラスとユニークなカラム名をセットで渡してimportsを呼ぶとモデルを作成or更新できる' do
       importer = described_class.new(Category, :name)
+
+      Category.create(name: 'hoge', display_name: 'hongeee')
+
       source = [
         ['name', 'display_name'],
         ['hoge', 'ほげ'],
@@ -18,11 +21,14 @@ describe SpreadsheetImporter::Importer do
 
       expect {
         importer.imports
-      }.to change(Category, :count).by(2)
+      }.to change(Category, :count).by(1)
     end
 
     it '作成or更新されたモデルはsourceの各行と対応している' do
       importer = described_class.new(Category, :name)
+
+      Category.create(name: 'hoge', display_name: 'hongeee')
+
       source = [
         ['name', 'display_name'],
         ['hoge', 'ほげ'],

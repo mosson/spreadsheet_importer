@@ -1,4 +1,5 @@
 # encoding: utf-8
 
 class Category < ActiveRecord::Base
+  validates_uniqueness_of :name
 end
